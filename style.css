@@ -1,0 +1,1895 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+   --main-color: #8e44ad;
+   --red: #e74c3c;
+   --orange: #f39c12;
+   --light-color: #888;
+   --light-bg: #eee;
+   --black: #2c3e50;
+   --white: #fff;
+   --border: .1rem solid rgba(0, 0, 0, .2);
+}
+
+* {
+   font-family: 'Nunito', sans-serif;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   outline: none;
+   border: none;
+   text-decoration: none;
+}
+
+*::selection {
+   background-color: var(--main-color);
+   color: #fff;
+}
+
+html {
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+   width: 1rem;
+   height: .5rem;
+}
+
+html::-webkit-scrollbar-track {
+   background-color: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+   background-color: var(--main-color);
+}
+
+body {
+   background-color: var(--light-bg);
+   padding-left: 30rem;
+}
+
+body.dark {
+   --white: #2222;
+   --light-color: #aaa;
+   --light-bg: #333;
+   --black: #fff;
+   --border: .1rem solid rgba(255, 255, 255, .2);
+
+}
+
+
+
+body.active {
+   padding-left: 0;
+}
+
+section {
+   padding: 2rem;
+   margin: 0 auto;
+   max-width: 1200px;
+}
+
+.heading {
+   font-size: 2.5rem;
+   color: var(--black);
+   margin-bottom: 2.5rem;
+   border-bottom: var(--border);
+   padding-bottom: 1.5rem;
+   text-transform: capitalize;
+}
+
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn,
+.btn,
+.delete-btn,
+.option-btn {
+   border-radius: .5rem;
+   color: #fff;
+   font-size: 1.8rem;
+   cursor: pointer;
+   text-transform: capitalize;
+   padding: 1rem 3rem;
+   text-align: center;
+   margin-top: 1rem;
+}
+
+.btn,
+.delete-btn,
+.option-btn {
+   display: block;
+   width: 100%;
+}
+
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn {
+   display: inline-block;
+}
+
+.btn,
+.inline-btn {
+   background-color: var(--main-color);
+}
+
+.option-btn,
+.inline-option-btn {
+   background-color: var(--orange);
+}
+
+.delete-btn,
+.inline-delete-btn {
+   background-color: var(--red);
+}
+
+.inline-btn:hover,
+.inline-option-btn:hover,
+.inline-delete-btn:hover,
+.btn:hover,
+.delete-btn:hover,
+.option-btn:hover {
+   background-color: var(--black);
+   color: var(--white);
+}
+
+.flex-btn {
+   display: flex;
+   gap: 1rem;
+}
+
+.heading {
+   padding-bottom: 1.8rem;
+   border-bottom: var(--border);
+   font-size: 2.5rem;
+   color: var(--black);
+   text-transform: capitalize;
+   margin-bottom: 2rem;
+
+
+
+
+}
+
+.header {
+   position: sticky;
+   top: 0;
+   left: 0;
+   right: 0;
+   background-color: var(--white);
+   z-index: 1000;
+   border-bottom: var(--border);
+}
+
+.header .flex {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: relative;
+   padding: 1.5rem 2rem;
+}
+
+.header .flex .logo {
+   font-size: 2.5rem;
+   color: var(--black);
+}
+
+.header .flex .search-form {
+   width: 50rem;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding: 1.5rem 2rem;
+   display: flex;
+   gap: 2rem;
+
+}
+
+.header .flex .search-form input {
+   width: 100%;
+   font-size: 1.8rem;
+   color: var(--black);
+   background: none;
+}
+
+.header .flex .search-form button {
+   background: none;
+   font-size: 2rem;
+   cursor: pointer;
+   color: var(--black);
+}
+
+.header .flex .search-form button:hover {
+   color: var(--main-color);
+}
+
+.header .flex .icons div {
+   font-size: 2rem;
+   color: var(--black);
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   height: 4.5rem;
+   width: 4.5rem;
+   line-height: 4.5rem;
+   cursor: pointer;
+   text-align: center;
+   margin-left: .7rem;
+}
+
+.header .flex .icons div:hover {
+   background-color: var(--black);
+   color: var(--white);
+}
+
+.header .flex .profile {
+   position: absolute;
+   top: 120%;
+   right: 2rem;
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 1.5rem;
+   text-align: center;
+   overflow: hidden;
+   transform-origin: top right;
+   transform: scale(0);
+   transition: .2s linear;
+   width: 30rem;
+}
+
+.header .flex .profile.active {
+   transform: scale(1);
+}
+
+.header .flex .profile .image {
+   height: 10rem;
+   width: 10rem;
+   border-radius: 50%;
+   object-fit: contain;
+   margin-bottom: 1rem;
+}
+
+.header .flex .profile .name {
+   font-size: 2rem;
+   color: var(--black);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.header .flex .profile .role {
+   font-size: 1.8rem;
+   color: var(--light-color);
+}
+
+#search-btn {
+   display: none;
+}
+
+.side-bar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width:30rem;
+   height:100vh;
+   background-color: var(--light-bg);
+   border-right: var(--border);
+   z-index: 1200;
+
+}
+
+.side-bar #close-btn {
+   text-align: right;
+   padding: 2rem;
+   display: none;
+}
+
+.side-bar #close-btn i {
+   text-align: right;
+   font-size: 2.5rem;
+   background: var(--red);
+   border-radius: .5rem;
+   color: var(--white);
+   cursor: pointer;
+   height: 4.5rem;
+   width: 4.5rem;
+   line-height: 4.5rem;
+   text-align: center;
+}
+
+.side-bar #close-btn i:hover {
+   background-color: var(--black);
+}
+
+.side-bar .profile {
+   padding: 3rem 2rem;
+   text-align: center;
+}
+
+.side-bar .profile .image {
+   height: 10rem;
+   width:10rem;
+   border-radius: 50%;
+   object-fit: contain;
+   margin-bottom: 1rem;
+}
+
+.side-bar .profile .name {
+   font-size: 2rem;
+   color: var(--black);
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.side-bar .profile .role {
+   font-size: 1.8rem;
+   color: var(--light-color);
+}
+
+.side-bar .navbar a {
+   display: block;
+   padding:1.8rem;
+   font-size: 2rem;
+   color:white;
+}
+
+.side-bar .navbar a i {
+   margin-right: 1.5rem;
+   color: var(--main-color);
+   transition: .2s linear;
+}
+
+.side-bar .navbar a span {
+   color: var(--light-color);
+}
+
+.side-bar .navbar a:hover {
+   background-color: blue;
+   color:white;
+}
+
+.side-bar .navbar a:hover i {
+   margin-right: 2.5rem;
+}
+
+.side-bar.active {
+   left: -30rem;
+}
+
+.quick .box-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(27.5rem, 1fr));
+   gap: 1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+
+
+
+}
+
+.quick .box-container .box {
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding: 2rem;
+
+
+}
+
+.quick .box-container .box .title {
+   font-size: 2rem;
+   color: var(--black);
+
+}
+
+.quick .box-container .box p {
+   line-height: 1.5;
+   padding-top: 1.5rem;
+   color: var(--light-color);
+   font-size: 1.8rem;
+
+
+}
+
+.quick .box-container .box p span {
+   color: var(--main-color);
+
+
+}
+
+.quick .box-container .tutor {
+   align-items: center;
+
+
+}
+
+.quick .box-container .tutor p {
+   padding-bottom: 1rem;
+
+
+}
+
+.quick .box-container .box .flex {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1.5rem;
+   padding-top: 2rem;
+
+}
+
+.quick .box-container .box .flex a {
+   padding: 1rem 1.6rem;
+   border-radius: 50rem;
+   font-size: 1.6rem;
+   background-color: var(--light-bg);
+
+}
+
+.quick .box-container .box .flex a i {
+   margin-right: 1.5rem;
+   color: var(--black);
+
+}
+
+.quick .box-container .box .flex a span {
+   color: var(--light-color);
+
+
+}
+
+.quick .box-container .box .flex a:hover {
+   background-color: var(--black);
+
+
+}
+
+.quick .box-container .box .flex a:hover i {
+   color: var(--white);
+}
+
+.quick .box-container .box .flex a:hover span {
+   color: var(--white);
+}
+
+/*this coding part of our course section*/
+
+.course .box-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(27.5rem, 1fr));
+   gap: 1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+
+
+}
+
+.course .box-container .box {
+   border-radius: .5rem;
+   background-color: var(--white);
+   padding: 2rem;
+
+}
+
+.course .box-container .box .tutor {
+   margin-bottom: 2rem;
+   display: flex;
+   align-items: center;
+   gap: 3rem;
+}
+
+.course .box-container .box .tutor h3 {
+   font-size: 2rem;
+   color: var(--black);
+   margin-bottom: 2rem;
+
+}
+
+.course .box-container .box .tutor span {
+   font-size: 1.5rem;
+   color: var(--light-color);
+
+}
+
+.course .box-container .box .tutor img {
+   width: 5rem;
+   height: 5rem;
+   border-radius: 50%;
+   object-fit: cover;
+}
+
+
+
+
+.course .box-container .box .thumb {
+   width: 100%;
+   border-radius: .5rem;
+   height: 20rem;
+   object-fit: cover;
+
+}
+
+.course .box-container .box .title {
+   font-size: 2rem;
+   color: var(--black);
+   margin-top: .5rem;
+   padding: .5rem 0;
+
+
+}
+
+
+
+.course .morebtn {
+   margin-top: 2rem;
+   text-align: center;
+}
+
+/*this code part strat of about html styling*/
+
+.about .row {
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+   flex-wrap: wrap;
+
+}
+
+.about .row .image {
+   flex: 1 1 35rem;
+
+}
+
+.about .row .image img {
+   width: 100%;
+   height: 50rem;
+
+}
+
+.about .row .content {
+   flex: 1 1 40rem;
+
+}
+
+.about .row .content h3 {
+   font-size: 2.5rem;
+   color: var(--black);
+
+}
+
+.about .row .content p {
+   line-height: 2;
+   font-size: 1.7rem;
+   padding: 1rem 0;
+}
+
+.about .box-container {
+   margin-top: 3rem;
+   display: flex;
+   gap: 2rem;
+   flex-wrap: wrap;
+
+
+}
+
+.about .box-container .box {
+   flex: 20rem;
+   display: flex;
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   padding: 2rem;
+
+}
+
+.about .box-container h3 {
+   font-size: 25px;
+}
+
+.about .box-container span {
+   font-size: 17px;
+}
+
+/*this part of the playlist section*/
+
+.playlist .row {
+   display: flex;
+   align-items: flex-end;
+   gap: 2.5rem;
+   flex-wrap: wrap;
+   padding: 2rem;
+   background-color: var(--white);
+
+}
+
+.playlist .row .col {
+   flex: 1 1 40rem;
+
+
+
+}
+
+.playlist .row .col .savelist button {
+   font-size: 20rem;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   padding: 1rem 2.5rem;
+   cursor: pointer;
+   margin-bottom: 2rem;
+}
+
+.playlist .row .col .savelist button i {
+   color: var(--black);
+   margin-right: 1rem;
+
+
+}
+
+.playlist .row .col .savelist button span {
+   color: var(--light-color);
+
+}
+
+.playlist .row .columns .savelist button:hover {
+   background-color: whitesmoke;
+
+
+}
+
+.playlist .row .columns .savelist button:hover i {
+   background-color: var(--white);
+
+
+}
+
+.playlist .row .columns .savelist button:hover span {
+   background-color: var(--black);
+
+
+}
+
+.playlist .row .columns .thumb {
+   position: relative;
+   height: 30rem;
+}
+
+.playlist .row .columns .thumb span {
+   position: absolute;
+   top: 1rem;
+   left: 1rem;
+   border-radius: .5rem;
+   padding: .5rem 2rem;
+   font-size: 2rem;
+   color: var(--white);
+   background-color: rgba(0, 0, 0, .8);
+
+
+}
+
+.playlist .row .columns .thumb img {
+   width: 100%;
+   height: 100%;
+   border-radius: .5rem;
+   object-fit: cover;
+
+
+
+}
+
+.playlist .row .col .tutor {
+   display: flex;
+   align-items: center;
+   gap: 1.8rem;
+}
+
+.playlist .row .col .tutor image {
+   height: 7rem;
+   width: 7rem;
+   border-radius: 50%;
+   object-fit: cover;
+
+}
+
+.playlist .row .col .tutor h3 {
+   font-size: 2rem;
+   color: var(--black);
+   margin-bottom: .2rem;
+
+
+
+
+}
+
+.playlist .row .col .tutor span {
+   color: var(--main-color);
+   font-size: 2rem;
+
+}
+
+.playlist .row .col .details {
+   padding-top: 2rem;
+
+}
+
+.playlist .row .col .details h3 {
+   font-size: 2rem;
+   color: var(--black);
+
+}
+
+.playlist .row .col .details p {
+   padding: 1rem 0;
+   line-height: 2;
+   color: var(--light-color);
+   font-size: 1.5rem;
+
+
+}
+
+.playlist .row .col .details .date {
+   font-size: 1.7rem;
+   padding-top: 1rem;
+
+
+}
+
+.playlist .row .col .details .date i {
+   color: var(--main-color);
+   margin-right: 1rem;
+
+
+
+}
+
+.playlist .row .col .details .date span {
+   color: var(--light-color);
+}
+
+.video-container .box-container {
+
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(27.5rem, 1fr));
+   gap: 1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+
+}
+
+.video-container .box-container .box {
+   position: relative;
+   border-radius: .5rem;
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+   padding-left: 1rem;
+   padding-right: 4rem;
+
+
+   background-color: var(--white);
+
+}
+
+.video-container .box-container .box img {
+   display: flex;
+   height: 20rem;
+   width: 110%;
+   border-radius: .5rem;
+   object-fit: cover;
+   margin: auto;
+
+
+}
+
+.video-container .box-container .box i {
+   position: absolute;
+   padding-left: 14rem;
+   padding-right: 14rem;
+   height: 20rem;
+   background-color: rgba(0, 0, 0, 0);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 4rem;
+   color: var(--white);
+   border-radius: .5rem;
+   display: none;
+
+
+
+
+}
+
+.video-container .box-container .box:hover i {
+   display: flex;
+
+
+}
+
+.video-container .box-container .box h3 {
+   font-size: 1.9rem;
+   color: var(black);
+   margin-top: 1rem;
+}
+
+.video-container .box-container .box:hover h3 {
+   color: var(--main-color);
+}
+
+
+
+/*this styling part of watch video html file coding part*/
+
+
+.watchvideo .box-container {
+   background-color: var(--white);
+   padding: 2rem;
+
+
+}
+
+.watchvideo .box-container .video {
+   width: 100%;
+   border-radius: .5rem;
+   margin-bottom: 1rem;
+   display: flex;
+
+}
+
+.watchvideo h3 {
+   font-size: 2rem;
+   color: black;
+}
+
+.watchvideo .box-container .box {
+   font-size: 20px;
+   text-transform: capitalize;
+   background-color: var(--light-bg);
+}
+
+
+/*this styling part of watch video html file coding part ending*/
+
+/*this styling part of rejisterb from*/
+
+.form-container {
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   min-height: calc(100vh -20rem);
+
+}
+
+.form-container form {
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 2rem;
+   padding-top: 1rem;
+
+
+}
+
+.form-container form h3 {
+   text-align: center;
+   font-size: 2.5rem;
+   margin-bottom: 1rem;
+}
+
+.form-container form p {
+   padding-top: 1rem;
+   font-size: 1.8rem;
+   color: var(--light-color);
+   margin-right: 290px;
+}
+
+.form-container form p span {
+   color: red;
+}
+
+.form-container form .box {
+   width: 100%;
+   border-radius: .5rem;
+   margin: 1rem 0;
+   font-size: 1.8rem;
+   color: var(--light-bg);
+   padding: 1rem;
+   background-color: var(--light-bg);
+
+}
+
+.form-container1 {
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   max-height: max-content;
+   margin-top: 9rem;
+
+
+}
+
+.form-container1 form {
+   background-color: var(--white);
+   border-radius: .5rem;
+   padding: 2rem;
+   padding-top: 2rem;
+
+
+}
+
+.form-container1 form h3 {
+   text-align: center;
+   font-size: 2.5rem;
+   margin-bottom: 1rem;
+}
+
+.form-container1 form p {
+   padding-top: 1.5rem;
+   font-size: 1.8rem;
+   color: var(--light-color);
+   margin-right: 290px;
+}
+
+.form-container1 form p span {
+   color: red;
+}
+
+.form-container1 form .box {
+   width: 100%;
+   border-radius: .5rem;
+   margin: 1rem 0;
+   font-size: 1.8rem;
+   color: var(--light-bg);
+   padding: 1rem;
+   background-color: var(--light-bg);
+
+}
+
+/*this part of code is endimg*/
+
+/*this styling part of teacher.html*/
+.teacher .search-tutor {
+   margin-bottom: 3rem;
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+   padding: 1.5rem 2rem;
+   background-color: var(--white);
+
+
+}
+
+.teacher .search-tutor input {
+   width: 100%;
+   font-size: 1.8rem;
+   background: none;
+   color: var(--black);
+
+}
+
+.teacher .search-tutor button {
+   font-size: 2rem;
+   cursor: pointer;
+   color: var(--black);
+   background: none;
+
+
+}
+
+.teacher .search-tutor button:hover {
+   color: var(--main-color);
+   font-size: 2.5rem;
+}
+
+.teacher .box-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(27.5rem, 1fr));
+   gap: 1.5rem;
+   align-items: flex-start;
+   justify-content: center;
+
+
+}
+
+.teacher .box-container .box {
+   border-radius: .5rem;
+   padding: 2rem;
+   background-color: var(--white);
+
+
+
+}
+
+.teacher .box-container .box:hover {
+   font: 3rem;
+   transition-property: 0.5s;
+}
+
+.teacher .box-container .box .tutor {
+   margin-bottom: 1rem;
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+
+
+}
+
+.teacher .box-container .box .tutor img {
+   height: 8rem;
+   width: 8rem;
+   object-fit: cover;
+   border-radius: 50%;
+
+
+}
+
+.teacher .box-container .box .tutor img:hover {
+   height: 20rem;
+   width: 20rem;
+   transition-duration: 0.5s;
+   border-radius: 100%;
+}
+
+.teacher .box-container .box .tutor h3 {
+   color: var(--black);
+   font-size: 2rem;
+   margin-bottom: .2rem;
+
+
+}
+
+.teacher .box-container .box .tutor h3:hover {
+   transition-duration: 0.5s;
+   font-size: 2.5rem;
+}
+
+.teacher .box-container .box .tutor span {
+   color: var(--main-color);
+   font-size: 1.5rem;
+
+}
+
+.teacher .box-container .box .tutor span:hover {
+   transition-duration: 0.5s;
+}
+
+.teacher .box-container .box p {
+   padding-top: 1rem;
+   font-size: 1.8rem;
+   color: var(--light-color);
+
+
+}
+
+.teacher .box-container .box p :hover {
+   transition-duration: 0.5s;
+}
+
+.teacher .box-container .box p span {
+   color: var(--main-color);
+
+}
+
+.teacher .box-container .box p span:hover {
+   transition-duration: 0.5s;
+
+}
+
+.teacher .box-container .offer {
+   font-size: 2rem;
+   text-align: center;
+
+
+}
+
+.teacher .box-container .offer h3 {
+
+   font-size: 2rem;
+   color: black;
+}
+
+.teacher .box-container .offer p {
+   line-height: 2.5rem;
+   font-size: 1.8rem;
+   padding-bottom: .5rem;
+
+}
+
+.teacher .box-container .offer p:hover {
+   transition-duration: 0.5s;
+}
+
+
+
+/*this part of ending*/
+
+
+
+/*this code part strat of contact html styling*/
+
+.contact .row {
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+   flex-wrap: wrap;
+
+
+}
+
+.contact .row .image {
+   flex: 1 1 50rem;
+}
+
+
+.contact .row .image img {
+   height: 50rem;
+   width: 100%;
+
+
+
+
+}
+
+.contact .row form {
+   flex: 1 1 30rem;
+   background-color: var(--white);
+   padding: 2rem;
+   text-align: center;
+
+}
+
+.contact .row form h3 {
+   font-size: 2.5rem;
+   margin-bottom: 1rem;
+   color: var(--black);
+
+}
+
+.contact .row form .box {
+   width: 100%;
+   margin: 1rem 0;
+   border-radius: .5rem;
+   background-color: var(--light-bg);
+   color: var(--black);
+   font-size: 1.8rem;
+   padding: 1.5rem;
+
+}
+
+.contact .row form textarea {
+   height: 20rem;
+   resize: none;
+
+}
+
+.contact .box-container {
+   margin-top: 3rem;
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+   flex-wrap: wrap;
+}
+
+.contact .box-container .box {
+   flex: 1 1 28rem;
+   border-radius: .5renm;
+   background-color: var(--white);
+   padding: 2rem;
+   text-align: center;
+
+}
+
+.contact .box-container .box i {
+   font-size: 3rem;
+   color: var(--main-color);
+   margin-bottom: 1 rem;
+
+}
+
+.contact .box-container .box h3 {
+   margin: 1rem 0;
+   font-size: 2rem;
+   color: var(--black);
+
+}
+
+.contact .box-container .box a {
+   display: block;
+   margin-top: 1rem;
+   font-size: 1.8rem;
+   color: var(--light-color);
+   line-height: 2;
+   margin-top: .5rem;
+
+}
+
+.contact .box-container .box a:hover {
+   text-decoration: underline;
+   color: var(--main-color);
+
+
+}
+
+
+
+/*this code part ending of contact html styling*/
+
+
+
+/*this styling part of profile section*/
+.profile .details {
+   background-color: var(--white);
+   border-radius: 2rem;
+   padding: 2rem;
+
+}
+
+.profile .details .user {
+   text-align: center;
+   margin-bottom: 2rem;
+}
+
+.profile .details .user img {
+   height: 10rem;
+   width: 10rem;
+   object-fit: cover;
+   border-radius: 50%;
+   margin-bottom: 1rem;
+
+}
+
+.profile .details .user h3 {
+   font-size: 2rem;
+   margin: .5rem 0;
+   color:var(--black);
+
+
+}
+
+.profile .details .user p {
+   font-size: 2rem;
+   color: var(--light-bg);
+}
+
+
+.profile .details .box-container {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: flex-end;
+   gap: 1.5rem;
+}
+
+.profile .details .box-container .box {
+   background-color: var(--light-bg);
+   border-radius: .5rem;
+   padding: 2rem;
+   flex: 1 1 30rem;
+}
+
+.profile .details .box-container .box .flex {
+   display: flex;
+   align-items:center;
+   gap: 1.5rem;
+   margin-bottom: 1rem;
+}
+
+.profile .details .box-container .box .flex i {
+   height: 5rem;
+   width: 4.5rem;
+   border-radius: .5rem;
+   background-color: var(--black);
+   line-height: 4.4rem;
+   font-size: 2rem;
+   color: var(--white);
+   text-align: center;
+
+}
+
+.profile .details .box-container .box .flex h3 {
+   font-size: 2rem;
+   color: var(--main-color);
+   margin-bottom: .2rem;
+
+}
+.profile .details .box-container .box .flex span{
+   font-size: 1.5rem;
+   color:var(--light-color);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*the ending styling part of profile section*/
+
+
+
+.footer {
+   background-color: var(--white);
+   border-top: var(--border);
+   position: sticky;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   text-align: center;
+   font-size: 2rem;
+   padding: 2.5rem 2rem;
+   color: var(--black);
+   margin-top: 1rem;
+   z-index: 1000;
+   /* padding-bottom: 9.5rem; */
+}
+
+.footer span {
+   color: var(--main-color);
+}
+
+
+
+@media (max-width:1281px) {
+
+   body {
+      padding-left: 0;
+   }
+
+   .side-bar {
+      left: -30rem;
+      transition: .2s linear;
+   }
+
+   .side-bar #close-btn {
+      display: block;
+   }
+
+   .side-bar.active {
+      left: 0;
+      box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8);
+      border-right: 0;
+   }
+
+   .footer {
+      margin-top: 20rem;
+   }
+
+   .form-container1 form {
+      width: 60%;
+      height: 44rem;
+
+   }
+
+   .form-container1 form p {
+      float: left;
+      font-size: 2rem;
+   }
+
+   .form-container1 form .btn {
+      margin-top: 5rem;
+   }
+
+   .form-container1 form .box {
+      padding: 2rem;
+   }
+
+
+
+}
+
+@media (max-width:991px) {
+
+   html {
+      font-size: 55%;
+   }
+
+   .footer {
+      margin-top: 560px;
+      margin-bottom: 0rem;
+
+   }
+
+   .form-container {
+      margin-top: 200px;
+      object-fit: cover;
+      width: 100%;
+      min-height: calc(100vh -20rem);
+   }
+
+   .form-container form .box {
+      max-width: 2000px;
+      margin: auto;
+
+   }
+
+   .form-container1 form {
+      margin-top: 10rem;
+      width: 100%;
+   }
+
+   .form-container1 form p {
+      float: left;
+      font-size: 3rem;
+      padding: 2rem;
+   }
+
+   .form-container1 form h3 {
+      font-size: 4rem;
+   }
+
+   .form-container1 form .box {
+      height: 5.8rem;
+      font-size: 2rem;
+   }
+
+   .form-container1 form .btn {
+      height: 6rem;
+
+   }
+
+   .form-container form {
+      margin-top: 0rem;
+      width: 90%;
+      height: 100%;
+   }
+
+   .form-container form h3 {
+      font-size: 3rem;
+   }
+
+   .form-container form p {
+      float: left;
+      padding: 2rem;
+      font-size: 2.7rem;
+   }
+
+   .form-container form .box {
+      height: 5.8rem;
+      font-size: 2.5rem;
+   }
+
+   .form-container form .btn {
+      margin-top: 10rem;
+      height: 8rem;
+      font-size: 2.5rem;
+   }
+
+
+
+
+
+
+
+}
+
+@media (max-width:771px) {
+
+   #search-btn {
+      display: inline-block;
+   }
+
+   .header .flex .search-form {
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      border-top: var(--border);
+      border-bottom: var(--border);
+      background-color: var(--white);
+      border-radius: 0;
+      width: auto;
+      padding: 2rem;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      transition: .2s linear;
+   }
+
+   .header .flex .search-form.active {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+   }
+
+   .footer {
+      font-size: 1.8rem;
+
+
+   }
+
+   .header .flex .logo {
+      padding: 0px;
+
+   }
+
+   .form-container form .btn {
+      margin-bottom: 100px;
+   }
+
+   .form-container form {
+      height: 10vh;
+   }
+
+
+   .course .box-container {
+      height: 380rem;
+      margin-bottom: 0rem;
+   }
+
+   .course .box-container {
+      display: block;
+      gap: 1.5rem;
+
+
+   }
+
+   .course .box-container .box {
+      border-radius: .5rem;
+      background-color: var(--white);
+      padding: 2rem;
+   }
+
+   .course .box-container .box .tutor {
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+   }
+
+   .course .box-container .box .tutor h3 {
+      font-size: 2rem;
+      color: var(--black);
+      margin-bottom: 2rem;
+
+   }
+
+   .course .box-container .box .tutor span {
+      font-size: 1.5rem;
+      color: var(--light-color);
+
+   }
+
+   .course .box-container .box .tutor img {
+      width: 5rem;
+      height: 6rem;
+      border-radius: 50%;
+      object-fit: cover;
+   }
+
+
+
+
+   .course .box-container .box .thumb {
+      width: 100%;
+      border-radius: .5rem;
+      height: 40rem;
+      object-fit: cover;
+
+   }
+
+   .course .box-container .box .title {
+      font-size: 2rem;
+      color: var(--black);
+      margin-top: .5rem;
+      padding: .5rem 0;
+
+
+   }
+
+   .course .morebtn {
+      margin-top: 2rem;
+      text-align: center;
+   }
+
+   .form-container1 form {
+      margin-top: 10rem;
+      width: 100%;
+   }
+
+   .form-container1 form p {
+      float: left;
+      font-size: 1.9rem;
+      padding: 2rem;
+   }
+
+   .form-container1 form h3 {
+      font-size: 4rem;
+   }
+
+   .form-container1 form .box {
+      height: 5.8rem;
+      font-size: 2rem;
+   }
+
+   .form-container1 form .btn {
+      height: 6rem;
+
+   }
+
+
+   .form-container {
+      margin-top: 5rem;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      min-height: calc(100vh -20rem);
+      margin-bottom: 100vh;
+
+   }
+
+   .form-container form {
+      border-radius: .5rem;
+      padding: 2rem;
+      width: 90%;
+
+
+   }
+
+   .form-container form h3 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-top: 0px;
+      padding-bottom: 5rem;
+   }
+
+   .form-container form p {
+      padding-top: 2rem;
+      font-size: 2.9rem;
+      color: var(--light-color);
+      margin-right: 290px;
+   }
+
+   .form-container form p span {
+      color: red;
+      font-size: 2.9rem;
+   }
+
+   .form-container form .box {
+      height: 7vh;
+      border-radius: 2rem;
+      font-size: 2.8rem;
+      color: var(--light-color);
+      background-color: var(--white);
+      margin-top: 1rem;
+
+   }
+
+
+
+}
+
+
+
+
+
+
+
+@media (max-width:450px) {
+
+   html {
+      font-size: 50%;
+   }
+
+   .heading {
+      font-size: 2rem;
+
+   }
+
+   .flex-btn {
+      gap: 0;
+      flex-flow: column;
+   }
+
+   .home-grid .box-container {
+      grid-template-columns: 1fr;
+   }
+
+   .about .row .image img {
+      height: 25rem;
+   }
+
+   .course .box .inline-btn {
+      margin-left: 45px;
+      background-color: blue;
+      color: white;
+      font-size: 20px;
+   }
+
+   .playlist .row .columns .thumb {
+      height: 20rem;
+   }
+
+
+   .contact .row .image img {
+      height: auto;
+      width: auto;
+
+
+
+
+   }
+
+   .watch-video .video-details .flex button {
+      width: 100%;
+
+   }
+
+   .watch-video .video-details .description p {
+      font-size: 1.5rem;
+      padding: 1rem;
+   }
+
+   .footer {
+      font-size: 1.9rem;
+      background-color: blue;
+      color: whitesmoke;
+      position: sticky;
+
+   }
+
+   .footer span {
+      color: white;
+   }
+
+   .header .flex .logo {
+      padding-left: 2rem;
+   }
+
+   .header .flex .icons div {
+      font-size: 1.5rem;
+      color: var(--white);
+      background-color: var(--main-color);
+      border-radius: .5rem;
+      height: 4.5rem;
+      width: 4rem;
+      line-height: 4rem;
+      cursor: pointer;
+      text-align: center;
+      margin-left: .7rem;
+
+   }
+
+
+   .header .flex .logo {
+      font-size: 1.8rem;
+      padding: 0;
+      margin: 0;
+      color: var(--black);
+   }
+
+   .quick .heading {
+      text-align: center;
+   }
+
+   .watchvideo .box-container .video {
+      margin: 10px;
+      width: 100%;
+      object-fit: cover;
+
+   }
+
+   .watchvideo .box-container .box {
+      font-size: 14px;
+      text-transform: capitalize;
+      background-color: var(--light-bg);
+   }
+
+   .form-container form p {
+      font-size: 2rem;
+      color: var(--light-color);
+      margin: auto;
+      float: left;
+      margin-top: 2rem;
+      padding: 1rem;
+
+   }
+
+   .form-container form .box {
+      width: 110%;
+      border-radius: .4rem;
+      font-size: 2.1rem;
+      color: var(--light-bg);
+      padding: 2.5rem;
+      background-color: var(--white);
+      height: 2.2rem;
+      justify-content: center;
+      align-items: center;
+
+
+   }
+
+   .form-container {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      margin: auto;
+      width: 100%;
+      max-height: fit-content;
+
+
+
+   }
+
+   .form-container form {
+      background-color: var(--white);
+      border-radius: .5rem;
+      padding: 1.5rem;
+      padding-top: 1rem;
+      margin-bottom: 10rem;
+      width: 100%;
+      height: 10vh;
+      text-transform: capitalize;
+
+
+   }
+
+   .form-container form h3 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-top: 0px;
+   }
+
+   .form-container form .btn {
+      margin-top: 3rem;
+      margin-bottom: 0px;
+
+   }
+
+   .form-container1 {
+      width: 100%;
+      margin-top: 10rem;
+      margin-bottom: 0%;
+   }
+
+   .form-container1 form {
+      background-color: var(--white);
+      border-radius: .6rem;
+      padding: 1.5rem;
+      padding-top: 1rem;
+      width: 100%;
+
+
+
+   }
+
+   .form-container1 form h3 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+   }
+
+   .form-container1 form p {
+      padding-top: 1rem;
+      font-size: 2rem;
+      margin: auto;
+      width: 100%;
+      display: block;
+      color: var(--light-color);
+      text-align: left;
+   }
+
+   .form-container1 form p span {
+      color: red;
+   }
+
+   .form-container1 form .box {
+      width: 100%;
+      border-radius: .5rem;
+      font-size: 1.8rem;
+      color: var(--light-bg);
+      padding: 1rem;
+      background-color: var(--light-bg);
+      align-items: center;
+      justify-content: center;
+
+   }
+
+   .form-container1 form .btn {
+      margin-bottom: 2rem;
+
+   }
+
+
+}
